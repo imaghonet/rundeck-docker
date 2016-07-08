@@ -4,11 +4,12 @@ services:
 
   rundeck-docker:
     container_name: rundeck-docker
-    image: rundeck-docker
+    image: imaghonet/rundeck-docker
     volumes:
       - /tmp/rundeck/var/rundeck:/var/rundeck
       - /tmp/rundeck/var/lib/rundeck/var:/var/lib/rundeck/var
       - /tmp/rundeck/var/lib/rundeck/logs:/var/lib/rundeck/logs
+      - /run/docker.sock:/var/run/docker.sock
     environment:
       - RUNDECK_ADMIN_NAME=admin
       - RUNDECK_ADMIN_PASS=admin
