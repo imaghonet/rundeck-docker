@@ -1,0 +1,29 @@
+version: "2"
+
+services:
+
+  rundeck-docker:
+    container_name: rundeck-docker
+    image: rundeck-docker
+    volumes:
+      - /tmp/rundeck/var/rundeck:/var/rundeck
+      - /tmp/rundeck/var/lib/rundeck/var:/var/lib/rundeck/var
+      - /tmp/rundeck/var/lib/rundeck/logs:/var/lib/rundeck/logs
+    environment:
+      - RUNDECK_ADMIN_NAME=admin
+      - RUNDECK_ADMIN_PASS=admin
+      - RUNDECK_USER_NAME=user
+      - RUNDECK_USER_PASS=user
+      - RUNDECK_JVM_XMX=1024m 
+      - RUNDECK_JVM_XMS=256m 
+      - RUNDECK_JVM_XX_MAX_PERM_SIZE=256m
+      - RUNDECK_LOGLEVEL_DEFAULT=INFO
+      - RUNDECK_GRAILS_SERVER_URL=http://localhost:4440
+      - FRAMEWORK_SERVER_NAME=localhost
+      - FRAMEWORK_SERVER_HOSTNAME=localhost
+      - FRAMEWORK_SERVER_PORT=4440
+      - FRAMEWORK_SERVER_URL=http://localhost:4440
+      - FRAMEWORK_SERVER_USERNAME=admin
+      - FRAMEWORK_SERVER_PASSWORD=admin
+    ports:
+      - 4440:4440
