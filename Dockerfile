@@ -11,7 +11,7 @@ RUN apt-get install -y \
   		python-pip \
   		curl \
   	&& curl -sLo /usr/local/bin/ep \
-		'https://github.com/kreuzwerker/envplate/releases/download/v0.0.8/ep-linux' \
+		'https://github.com/kreuzwerker/envplate/releases/download/1.0.0-RC1/ep-linux' \
 	&& chmod +x /usr/local/bin/ep \
 	&& apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D \
 	&& echo "deb https://apt.dockerproject.org/repo ubuntu-trusty main" > /etc/apt/sources.list.d/docker.list
@@ -34,6 +34,6 @@ STOPSIGNAL SIGKILL
 
 EXPOSE 4440
 
-VOLUME ["/etc/rundeck", "/var/rundeck", "/var/lib/rundeck/var", "/var/lib/rundeck/logs", "/opt/rundeck-plugins"]
+VOLUME ["/etc/rundeck", "/var/rundeck/projects", "/var/lib/rundeck/var", "/var/lib/rundeck/logs", "/opt/rundeck-plugins"]
 
 CMD /rundeck.sh

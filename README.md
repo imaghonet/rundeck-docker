@@ -30,7 +30,7 @@ docker run -d -p 4440:4440 -v /run/docker.sock:/var/run/docker.sock -v /tmp/rund
 ```bash
 docker-compose up -d
 ```
-Fo details see [docker-compose.yml](https://github.com/imaghonet/rundeck-docker/blob/master/docker-compose.yml)
+For details see [docker-compose.yml](https://github.com/imaghonet/rundeck-docker/blob/master/docker-compose.yml)
 
 
 ### Logging
@@ -69,6 +69,25 @@ FRAMEWORK_SERVER_URL = http://localhost:4440
 FRAMEWORK_SERVER_USERNAME = admin
 FRAMEWORK_SERVER_PASSWORD = admin
 ```
+
+### Volumes
+* `/your/host/path/projects:/var/rundeck/projects`
+stores the projects settings
+
+* `/your/host/path/var:/var/lib/rundeck/var`
+cache and temp data
+
+* `/your/host/path/logs:/var/lib/rundeck/logs`
+job execution output logs
+
+* `/your/host/path/data:/var/lib/rundeck/data`
+rundeck database where the job configuration is stored
+
+* `/run/docker.sock:/var/run/docker.sock`
+connenction to hosts docker enables rundeck to controll your host docker. Any docker command executed in rundeck container will affect the host.
+
+### Rundeck jobs for docker management
+Download the [Docker management jar file](https://github.com/imaghonet/rundeck-docker/blob/master/jobs/Docker-Management.rdproject.jar) and import it via Configure -> Import Archive. You need to login as admin.
 
 ### Licence
 See the [LICENCE](https://github.com/imaghonet/rundeck-docker/blob/master/LICENCE) file
