@@ -25,7 +25,7 @@ docker run -d -p 4440:4440 -v /run/docker.sock:/var/run/docker.sock -v /tmp/rund
 ```
 
 ### Docker compose info
-1. Download [docker-compose.yml](https://github.com/imaghonet/rundeck-docker/blob/master/docker-compose.yml) into your desired folde
+1. Download [docker-compose.yml](https://github.com/imaghonet/rundeck-docker/blob/master/docker-compose.yml) into your desired folder
 2. change to the folder and run:
 ```bash
 docker-compose up -d
@@ -49,8 +49,8 @@ RUNDECK_USER_PASS = user
 
 * Java settings (profiles)
 ```bash
-RUNDECK_JVM_XMX = 1024m 
-RUNDECK_JVM_XMS = 256m 
+RUNDECK_JVM_XMX = 1024m
+RUNDECK_JVM_XMS = 256m
 RUNDECK_JVM_XX_MAX_PERM_SIZE = 256m
 ```
 
@@ -84,7 +84,7 @@ job execution output logs
 rundeck database where the job configuration is stored
 
 * `/run/docker.sock:/var/run/docker.sock`
-connenction to hosts docker enables rundeck to controll your host docker. Any docker command executed in rundeck container will affect the host.
+connection to hosts docker enables rundeck to control your host docker. Any docker command executed in rundeck container will affect the host.
 
 ### Rundeck jobs for docker management
 Download the [Docker management jar file](https://github.com/imaghonet/rundeck-docker/blob/master/jobs/Docker-Management.rdproject.jar) and import it via Configure -> Import Archive. You need to login as admin.

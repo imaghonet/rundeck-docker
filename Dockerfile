@@ -7,9 +7,11 @@ RUN apt-get install -y openjdk-7-jre
 RUN apt-get install -y \
 		apt-transport-https \
 		ca-certificates \
+		subversion \
+		git \
 		python \
-  		python-pip \
-  		curl \
+  	python-pip \
+  	curl \
   	&& curl -sLo /usr/local/bin/ep \
 		'https://github.com/kreuzwerker/envplate/releases/download/1.0.0-RC1/ep-linux' \
 	&& chmod +x /usr/local/bin/ep \
